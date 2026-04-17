@@ -1,0 +1,76 @@
+{
+  "theme": "light",
+  "archetype": "4 (Swiss & High-Contrast)",
+  "domain": "EdTech / AI Tutor",
+  "identity": "StudyBrain - Intelligent, objective, structured, and memory-focused learning engine.",
+  "colors": {
+    "background": "hsl(60, 11%, 96%)",
+    "foreground": "hsl(0, 0%, 4%)",
+    "primary": "hsl(223, 100%, 33%)",
+    "primary_foreground": "hsl(0, 0%, 100%)",
+    "muted": "hsl(0, 0%, 90%)",
+    "muted_foreground": "hsl(0, 0%, 40%)",
+    "border": "hsl(0, 0%, 4%)",
+    "accent": "hsl(66, 100%, 50%)",
+    "accent_foreground": "hsl(0, 0%, 4%)",
+    "destructive": "hsl(0, 100%, 58%)",
+    "destructive_foreground": "hsl(0, 0%, 100%)",
+    "card": "hsl(0, 0%, 100%)",
+    "card_foreground": "hsl(0, 0%, 4%)"
+  },
+  "typography": {
+    "headings": {
+      "font": "Outfit",
+      "weight": "font-black",
+      "tracking": "tracking-tighter",
+      "instruction": "Never center by default. Left align. Use fluid clamp for massive sizes up to text-6xl."
+    },
+    "body": {
+      "font": "IBM Plex Sans",
+      "weight": "font-normal",
+      "tracking": "tracking-normal",
+      "instruction": "Clean, highly readable text for learning materials."
+    },
+    "mono": {
+      "font": "JetBrains Mono",
+      "weight": "font-medium",
+      "instruction": "CRITICAL: Use for AI outputs, timestamps, memory metrics, tags, and data visualization labels."
+    }
+  },
+  "layout_and_spacing": {
+    "strategy": "Swiss grid strategy. Exposed structural elements. Generous spacing (p-8 to p-24) to create tension.",
+    "marketing": "Mode A 'Tetris' grid. Asymmetrical layouts. Extremely generous padding. No centering.",
+    "app": "Mode B 'Control Room' grid. Strict grid hierarchy, dense but clear. Every pixel utilized.",
+    "borders": "Exposed grids. 1px or 2px solid black borders for all major containers to create a blueprint feel.",
+    "radius": "Sharp edges. rounded-none or maximum rounded-sm (2px) globally. No soft UI."
+  },
+  "components": {
+    "cards": "Flat solid background, sharp 1px black border. No soft drop shadows. On hover: translate-y-[-2px] with solid black hard shadow (e.g., shadow-[4px_4px_0_#0A0A0A]).",
+    "buttons": "Sharp edges, high contrast. Primary: Solid Klein Blue (#002FA7) background, white text. Secondary: Transparent background, 1px black border. Hover state MUST change color explicitly.",
+    "navigation": "Solid off-white or stark white background. Hard bottom border. Not glassmorphism, stick to solid/brutalist structure.",
+    "charts": "Use Recharts or Shadcn charts. Use Primary Blue, Highlighter Yellow, and Deep Black for data series.",
+    "inputs": "Flat background, 1px solid black border. Focus state must have an intense black ring or blue ring."
+  },
+  "media": {
+    "hero_image_url": "https://images.unsplash.com/photo-1774390632333-21a16877957e",
+    "library_background_url": "https://images.unsplash.com/photo-1559867632-9a4ed11e09b7",
+    "student_focused_url": "https://images.unsplash.com/photo-1752293946898-cbb41a899d65",
+    "abstract_concept_url": "https://images.unsplash.com/photo-1774390632393-efc28d28c8dd"
+  },
+  "icons_and_animations": {
+    "icons": "lucide-react. Keep them functional and sharp.",
+    "animations": "Minimal and snappy. No slow floats. Use transform 0.15s ease-out."
+  },
+  "accessibility_and_testing": {
+    "contrast": "Ensure APCA/WCAG AA standards. Black text on off-white or highlighter yellow.",
+    "testing_attributes": "All interactive and key informational elements MUST have data-testid in kebab-case."
+  },
+  "main_agent_instructions": {
+    "1": "Update tailwind.config.js to map these custom hsl colors. Set radius to 0 or 2px globally to enforce the sharp, Swiss look.",
+    "2": "Import 'Outfit', 'IBM Plex Sans', and 'JetBrains Mono' from Google Fonts and map them in tailwind.config.js as sans, serif, and mono respectively.",
+    "3": "Build the marketing page emphasizing the 'Blueprint' and 'Hindsight Memory' concepts using exposed grids and hard borders.",
+    "4": "In the app dashboard and chat interface, heavily customize Shadcn components to remove rounding and soft shadows, replacing them with brutalist 1px borders.",
+    "5": "Do NOT use default fonts like Inter, Roboto, or Lato. NEVER use purple/violet gradients.",
+    "6": "Use the provided media URLs. The hero_image_url should be used for the main conceptual visual of the AI engine."
+  }
+}

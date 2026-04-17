@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* StudyBrain Swiss / High-Contrast palette */
+        --background: 60 11% 96%;
+        --foreground: 0 0% 4%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 4%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 4%;
+        --primary: 223 100% 33%;         /* Klein Blue */
+        --primary-foreground: 0 0% 100%;
+        --secondary: 0 0% 94%;
+        --secondary-foreground: 0 0% 4%;
+        --muted: 0 0% 90%;
+        --muted-foreground: 0 0% 40%;
+        --accent: 66 100% 50%;           /* Highlighter Yellow */
+        --accent-foreground: 0 0% 4%;
+        --destructive: 0 100% 58%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 0 0% 4%;
+        --input: 0 0% 4%;
+        --ring: 223 100% 33%;
+        --chart-1: 223 100% 33%;
+        --chart-2: 66 100% 50%;
+        --chart-3: 0 0% 4%;
+        --chart-4: 0 100% 58%;
+        --chart-5: 0 0% 50%;
+        --radius: 0.125rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html, body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+    }
+    body {
+        margin: 0;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: "ss01", "ss02";
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', system-ui, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+    }
+    ::selection {
+        background: hsl(var(--accent));
+        color: hsl(var(--foreground));
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: hsl(var(--background));
+    }
+    ::-webkit-scrollbar-thumb {
+        background: hsl(var(--foreground));
+        border: 2px solid hsl(var(--background));
+    }
+}
+
+@layer utilities {
+    .font-display { font-family: 'Outfit', system-ui, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+    .brut-card {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--foreground));
+        transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    }
+    .brut-card-hover:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
+    }
+
+    .brut-btn {
+        border: 1px solid hsl(var(--foreground));
+        padding: 0.625rem 1rem;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background-color 0.12s ease-out;
+    }
+    .brut-btn:hover:not(:disabled) {
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0 0 hsl(var(--foreground));
+    }
+    .brut-btn:active:not(:disabled) {
+        transform: translate(0, 0);
+        box-shadow: 0 0 0 0 hsl(var(--foreground));
+    }
+    .brut-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .brut-btn-primary {
+        background: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+    }
+    .brut-btn-primary:hover:not(:disabled) {
+        background: hsl(0 0% 4%);
+    }
+
+    .brut-btn-accent {
+        background: hsl(var(--accent));
+        color: hsl(var(--accent-foreground));
+    }
+
+    .brut-btn-ghost {
+        background: transparent;
+        color: hsl(var(--foreground));
+    }
+    .brut-btn-ghost:hover:not(:disabled) {
+        background: hsl(var(--accent));
+    }
+
+    .brut-input {
+        width: 100%;
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--foreground));
+        padding: 0.625rem 0.875rem;
+        font-family: 'IBM Plex Sans', system-ui, sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: box-shadow 0.12s ease-out;
+    }
+    .brut-input:focus {
+        box-shadow: 3px 3px 0 0 hsl(var(--primary));
+    }
+
+    .brut-mark {
+        background: hsl(var(--accent));
+        padding: 0 0.15em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+
+    .grid-pattern {
+        background-image:
+            linear-gradient(to right, rgba(10,10,10,0.06) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(10,10,10,0.06) 1px, transparent 1px);
+        background-size: 32px 32px;
+    }
+
+    .noise-overlay::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .mastery-bar {
+        height: 6px;
+        background: hsl(var(--muted));
+        border: 1px solid hsl(var(--foreground));
+        position: relative;
+    }
+    .mastery-bar > span {
+        display: block;
+        height: 100%;
+        background: hsl(var(--primary));
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        column-gap: inherit; row-gap: inherit; gap: inherit;
+        border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+        border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+        border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+    }
+}
